@@ -1,5 +1,6 @@
 import './App.css'
 import Expenses from './components/Expenses/Expenses.jsx'
+import NewExpense from "./components/NewExpense/NewExpense.jsx"
 
 function App() {
   const expenses = 
@@ -15,9 +16,14 @@ function App() {
       price : 99.99
     }
   ]
+  const addExpenseHanlder = (expense) => {
+    console.log('app.jsx data')
+    console.log(expense)
+  }
 
   return (
     <div className='app'>
+      <NewExpense onAddExpense={addExpenseHanlder}/>
       <Expenses dataMain={expenses}/>
     </div>
   )
