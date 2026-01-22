@@ -1,9 +1,15 @@
 import './ExpenseItem.css'
 import ExpenseDate from './ExpenseDate.jsx'
 import Card from '../UI/card.jsx'
+import {useState} from 'react'
 
 function ExpenseItem(props){
-    console.log(props)
+    const [title, setTitle] = useState(props.data.title)
+    const clickHandler = () => {
+        console.log('Button clicked')
+        setTitle('Updated by click ' + title)
+        console.log(title)
+    }
     return (
         <Card className='expense-item'>
             <ExpenseDate data={props.data.date}/>
@@ -11,6 +17,7 @@ function ExpenseItem(props){
                 <h2>{props.data.title}</h2>
                 <div className='expense-item__price'>{props.data.price}€</div>
             </div>
+            <button onClick={clickHandler}>Click me</button>
         </Card>
     )
 }
