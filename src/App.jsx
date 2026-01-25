@@ -11,9 +11,19 @@ function App() {
       price : 25.99
     },
     {
-      date : new Date(2026, 0, 5),
+      date : new Date(2026, 0, 2),
       title : 'Fortnite V-Bucks',
       price : 99.99
+    },
+    {
+      date : new Date(2025, 6, 22),
+      title : 'ChatGPT++',
+      price : 99.99
+    },
+    {
+      date : new Date(2025, 1, 2),
+      title : 'Phone',
+      price : 999.99
     }
   ]
   const addExpenseHanlder = (expense) => {
