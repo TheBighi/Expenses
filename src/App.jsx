@@ -1,34 +1,45 @@
 import './App.css'
 import Expenses from './components/Expenses/Expenses.jsx'
 import NewExpense from "./components/NewExpense/NewExpense.jsx"
+import { useState } from 'react'
 
 function App() {
-  const expenses = 
+  const DUMMY_EXPENSES = 
   [
     {
+      id : 'id1',
       date : new Date(2026, 0, 10),
       title : 'New Book So Cool To Read',
       price : 25.99
     },
     {
+      id : 'id2',
       date : new Date(2026, 0, 2),
       title : 'Fortnite V-Bucks',
       price : 99.99
     },
     {
+      id : 'id3',
       date : new Date(2025, 6, 22),
       title : 'ChatGPT++',
       price : 99.99
     },
     {
+      id : 'id4',
       date : new Date(2025, 1, 2),
       title : 'Phone',
       price : 999.99
     }
   ]
+
+  const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
+
   const addExpenseHanlder = (expense) => {
     console.log('app.jsx data')
     console.log(expense)
+    setExpenses((prevExpenses) => {
+      return [expense, ...prevExpenses];
+    });
   }
 
   return (

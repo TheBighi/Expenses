@@ -4,7 +4,7 @@ import Card from '../UI/card.jsx'
 import {useState} from 'react'
 
 function ExpenseItem(props){
-    const [title, setTitle] = useState(props.data.title)
+    const [title, setTitle] = useState(props.expenseData.title)
     const clickHandler = () => {
         console.log('Button clicked')
         setTitle('Updated by click ' + title)
@@ -12,10 +12,10 @@ function ExpenseItem(props){
     }
     return (
         <Card className='expense-item'>
-            <ExpenseDate data={props.data.date}/>
+            <ExpenseDate data={props.expenseData.date}/>
             <div className='expense-item__description'>
-                <h2>{props.data.title}</h2>
-                <div className='expense-item__price'>{props.data.price}€</div>
+                <h2>{props.expenseData.title}</h2>
+                <div className='expense-item__price'>{props.expenseData.price}€</div>
             </div>
             <button onClick={clickHandler}>Click me</button>
         </Card>

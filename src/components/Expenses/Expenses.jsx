@@ -10,14 +10,16 @@ function Expenses(props){
 
     const changeHandler = (selectedYear) => {
         setfilteredYear(selectedYear)
-        console.log("Year data in expenes.js: " + selectedYear)
     }
 
     return (
         <Card className='expenses'>
             <ExpensesFilter selected={filteredYear} onChangeFilter={changeHandler}/>
             {props.dataMain.map((expense) => (
-            <ExpenseItem key={expense.id} data={expense} />
+            <ExpenseItem 
+                key={expense.id} 
+                expenseData={expense} 
+            />
             ))}
         </Card>
     )
