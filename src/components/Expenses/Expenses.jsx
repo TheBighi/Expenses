@@ -1,12 +1,13 @@
-import ExpenseItem from './ExpenseItem.jsx'
 import Card from '../UI/card.jsx'
 import './expense.css'
 import ExpensesFilter from './ExpenseFilter.jsx'
+import ExpenseList from './ExpensesList.jsx'
 import { useState } from 'react'
 
 function Expenses(props){
 
     let res
+    let expenseContent = <p style={{color: 'white'}}>No expenses found</p>
     const [filteredYear, setfilteredYear] = useState("2025")
 
     const changeHandler = (selectedYear) => {
@@ -19,17 +20,11 @@ function Expenses(props){
     else{
         res = props.dataMain.filter((expense) => expense.date.getFullYear() == filteredYear)
     }
-
-
+    
     return (
         <Card className='expenses'>
             <ExpensesFilter selected={filteredYear} onChangeFilter={changeHandler}/>
-            {res.map((expense) => (
-            <ExpenseItem 
-                key={expense.id} 
-                expenseData={expense} 
-            />
-            ))}
+            <ExpenseList expenses={res}/>
         </Card>
     )
 }
