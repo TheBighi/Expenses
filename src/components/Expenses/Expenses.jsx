@@ -18,7 +18,7 @@ function Expenses(props){
         res = props.dataMain
     }
     else{
-        res = props.dataMain.filter((expense) => expense.date.getFullYear() == filteredYear)
+        res = props.dataMain.filter((expense) => new Date(expense.date).getFullYear() == filteredYear)
     }
     
     return (

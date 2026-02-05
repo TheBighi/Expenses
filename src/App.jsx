@@ -1,7 +1,7 @@
 import './App.css'
 import Expenses from './components/Expenses/Expenses.jsx'
 import NewExpense from "./components/NewExpense/NewExpense.jsx"
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 function App() {
   const DUMMY_EXPENSES = 
@@ -31,8 +31,14 @@ function App() {
       price : 999.99
     }
   ]
+  const [expenses, setExpenses] = useState(() => {
+    const expensesFromLS = JSON.parse(localStorage.getItem('expesnes'))
+    return expensesFromLS || []
+  });
 
-  const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
+  useEffect(() => {
+    localStorage.setItem('expenses', JSON.stringify(expenses));
+  }, [expenses])
 
   const addExpenseHanlder = (expense) => {
     console.log('app.jsx data')
