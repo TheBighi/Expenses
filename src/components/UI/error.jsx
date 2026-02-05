@@ -1,4 +1,4 @@
-import React, {Fragmnet} from 'react'
+import React, {Fragment} from 'react'
 import ReactDOM from 'react-dom'
 
 import Card from './card.jsx'
@@ -36,7 +36,12 @@ const Error = (props) => {
                 document.getElementById('backdrop-root')
             )}
             {ReactDOM.createPortal(
-                <ModalOverlay title={props.title} message={props.message} onConfirm={props.onConfirm}/>, document.getElementById('overlay-root')
+                <ModalOverlay 
+                title={props.title} 
+                message={props.message} 
+                onConfirm={props.onConfirm}
+                />, 
+                document.getElementById('overlay-root')
             )}
         </Fragment>
     )
